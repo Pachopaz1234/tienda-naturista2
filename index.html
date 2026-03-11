@@ -218,25 +218,6 @@ Facebook
 
 </footer>
 
-function enviarWhatsApp(){
-
-let numero = "573125128327"
-
-let mensaje = "Hola, quiero pedir:%0A%0A"
-
-carrito.forEach(producto => {
-
-mensaje += producto.nombre + " - $" + producto.precio + "%0A"
-
-})
-
-mensaje += "%0ATotal: $" + total
-
-let url = "https://wa.me/" + numero + "?text=" + mensaje
-
-window.open(url,"_blank")
-
-}
 
 
 <script>
@@ -306,7 +287,28 @@ actualizarCarrito()
 
 }
 
+function enviarWhatsApp(){
+
+let numero = "573125128327"
+
+let mensaje = "Hola, quiero pedir:%0A%0A"
+
+carrito.forEach(producto => {
+
+mensaje += producto.nombre + " - $" + producto.precio + "%0A"
+
+})
+
+mensaje += "%0ATotal: $" + total
+
+let url = "https://wa.me/" + numero + "?text=" + mensaje
+
+window.open(url,"_blank")
+
+}
+
 </script>
+
 
 
 </body>
