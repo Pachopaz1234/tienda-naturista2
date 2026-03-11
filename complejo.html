@@ -66,6 +66,9 @@ border-radius:6px;
 <h1>complejo</h1>
 
 <h3>$25.000</h3>
+<button class="boton" onclick="agregarCarrito('Complejo',25000)">
+Agregar al carrito
+</button>
 
 <p>
 Complejo natural, para que te quite lo pendejo
@@ -87,6 +90,24 @@ Comprar por WhatsApp
 </div>
 
 </div>
+<script>
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || []
+let total = JSON.parse(localStorage.getItem("total")) || 0
+
+function agregarCarrito(nombre,precio){
+
+carrito.push({nombre,precio})
+total += precio
+
+localStorage.setItem("carrito",JSON.stringify(carrito))
+localStorage.setItem("total",JSON.stringify(total))
+
+alert("Producto agregado al carrito")
+
+}
+
+</script>
 
 </body>
 </html>
