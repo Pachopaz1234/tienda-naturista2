@@ -58,8 +58,13 @@ margin-top:10px;
 padding:10px 15px;
 background:#2e7d32;
 color:white;
-text-decoration:none;
+border:none;
 border-radius:6px;
+cursor:pointer;
+}
+
+.boton:hover{
+background:#1b5e20;
 }
 
 </style>
@@ -83,62 +88,34 @@ border-radius:6px;
 <div class="productos">
 
 <div class="producto">
-
 <img src="complejo.png">
-
 <h3>Complejo</h3>
-
 <p>$25.000</p>
-
-<a class="boton" href="producto-complejo.html">
-Ver producto
-</a>
-
 <button class="boton" onclick="agregarCarrito('Complejo Natural',25000)">
 Agregar al carrito
 </button>
-
 </div>
 
-
 <div class="producto">
-
 <img src="vitamina.png">
-
 <h3>Vitamina C</h3>
-
 <p>$30.000</p>
-
-<a class="boton" href="producto-vitamina.html">
-Ver producto
-</a>
-
 <button class="boton" onclick="agregarCarrito('Vitamina C',30000)">
 Agregar al carrito
 </button>
-
 </div>
 
 <div class="producto">
-
 <img src="Selenium-etc.png">
-
 <h3>Colágeno</h3>
-
 <p>$45.000</p>
-
-<a class="boton" href="producto-colageno.html">
-Ver producto
-</a>
-
 <button class="boton" onclick="agregarCarrito('Colágeno',45000)">
 Agregar al carrito
 </button>
+</div>
 
 </div>
 
-
-</div>
 <script>
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []
