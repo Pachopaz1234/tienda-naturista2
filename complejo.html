@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Complex - Tienda Naturista</title>
+<title>Complejo - Tienda Naturista</title>
 
 <style>
 
@@ -41,6 +41,12 @@ background:#2e7d32;
 color:white;
 text-decoration:none;
 border-radius:6px;
+border:none;
+cursor:pointer;
+}
+
+.boton:hover{
+background:#1b5e20;
 }
 
 </style>
@@ -51,7 +57,7 @@ border-radius:6px;
 
 <header>
 
-<a href="index.html" style="color:white;text-decoration:none;">
+<a href="index.html" style="color:white;text-decoration:none;font-weight:bold;">
 ← Volver a la tienda
 </a>
 
@@ -63,37 +69,41 @@ border-radius:6px;
 
 <div>
 
-<h1>Complejo</h1>
+<h1>Complejo Natural</h1>
 
 <h3>$25.000</h3>
+
 <button class="boton" onclick="agregarCarrito('Complejo Natural',25000)">
 🛒 Agregar al carrito
 </button>
 
 <p>
-Complejo natural, para que te quite lo pendejo
+Complejo natural que aporta vitaminas y minerales esenciales para el cuerpo.
 </p>
 
 <p>
-Beneficios:
+<b>Beneficios:</b>
 <br><br>
 • Ayuda a fortalecer el sistema inmunológico  
 • Fuente natural de energía  
-• Puede ayudar a aliviar la tos  
-• Rica en antioxidantes
+• Puede ayudar a aliviar el cansancio  
+• Aporta antioxidantes importantes
 </p>
 
 <a class="boton" href="https://wa.me/573125128327">
 Comprar por WhatsApp
 </a>
-  <br>
+
+<br>
 
 <a class="boton" href="productos.html">
 Ver más productos
 </a>
+
 </div>
 
 </div>
+
 <script>
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []
@@ -108,6 +118,8 @@ localStorage.setItem("carrito",JSON.stringify(carrito))
 localStorage.setItem("total",JSON.stringify(total))
 
 alert("Producto agregado al carrito")
+
+window.location.href = "productos.html"
 
 }
 
