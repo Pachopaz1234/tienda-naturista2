@@ -78,7 +78,13 @@ background:#1b5e20;
 <h2>Tienda Naturista</h2>
 
 <nav>
+
 <a href="index.html">Inicio</a>
+
+<span style="margin-left:20px;">
+🛒 <span id="contador-carrito">0</span>
+</span>
+
 </nav>
 
 </header>
@@ -129,9 +135,21 @@ total += precio
 localStorage.setItem("carrito",JSON.stringify(carrito))
 localStorage.setItem("total",JSON.stringify(total))
 
+actualizarContador()
+
 alert("Producto agregado al carrito")
 
 }
+function actualizarContador(){
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || []
+
+document.getElementById("contador-carrito").innerText = carrito.length
+
+}
+
+actualizarContador()
+
 
 </script>
 
