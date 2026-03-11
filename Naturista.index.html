@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>Tienda Naturista Pacho</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial;
+    background-color:#f4f8f2;
+}
+
+/* encabezado */
+
+header{
+    background-color:#2e7d32;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav a{
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* seccion principal */
+
+.hero{
+    text-align:center;
+    padding:80px;
+    background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    url("https://images.unsplash.com/photo-1505576399279-565b52d4ac71");
+    background-size:cover;
+    color:white;
+}
+
+.hero h1{
+    font-size:45px;
+}
+
+/* productos */
+
+.productos{
+    padding:40px;
+    text-align:center;
+}
+
+.productos h2{
+    margin-bottom:30px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+.card button{
+    margin-top:10px;
+    padding:10px;
+    border:none;
+    background:#2e7d32;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* footer */
+
+footer{
+    margin-top:40px;
+    background:#1b5e20;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>Tienda Naturista Pacho</h2>
+
+<nav>
+<a href="#">Inicio</a>
+<a href="#">Productos</a>
+<a href="#">Ofertas</a>
+<a href="#">Contacto</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Productos Naturales para tu Salud</h1>
+<p>Vitaminas, suplementos y productos naturistas de calidad.</p>
+
+</section>
+
+<section class="productos">
+
+<h2>Productos Destacados</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2">
+<h3>Miel Natural</h3>
+<p>$25.000</p>
+<button>Comprar</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1579722820308-d74e571900a9">
+<h3>Vitamina C</h3>
+<p>$30.000</p>
+<button>Comprar</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1598514982841-646c2b4b1c8f">
+<h3>Colágeno Natural</h3>
+<p>$45.000</p>
+<button>Comprar</button>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 Tienda Naturista Pacho</p>
+<p>Productos naturales para una vida saludable</p>
+
+</footer>
+
+</body>
+</html>
