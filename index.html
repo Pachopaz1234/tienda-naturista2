@@ -93,6 +93,8 @@ padding:20px;
 
 <body>
 
+
+
 <header>
 
 <h2>Tienda Naturista</h2>
@@ -101,9 +103,44 @@ padding:20px;
 <a href="#inicio">Inicio</a>
 <a href="#productos">Ver productos</a>
 <a href="#contacto">Contacto</a>
+
+<span onclick="abrirCarrito()" style="cursor:pointer">
+🛒 <span id="contador-carrito">0</span>
+</span>
+
+
 </nav>
 
 </header>
+
+<div id="carrito" style="
+display:none;
+position:fixed;
+right:20px;
+top:80px;
+background:white;
+padding:20px;
+width:300px;
+box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+border-radius:10px;
+">
+
+<h3>Tu carrito</h3>
+
+<ul id="lista-carrito"></ul>
+
+<p>Total: $<span id="total">0</span></p>
+
+<button onclick="vaciarCarrito()">Vaciar carrito</button>
+
+<br><br>
+
+<button onclick="enviarWhatsApp()">
+Enviar pedido por WhatsApp
+</button>
+
+
+</div>
 
 <!-- INICIO -->
 
@@ -121,28 +158,41 @@ padding:20px;
 
 <section id="productos">
 
-<h2>Nuestras categorías</h2>
+<h2>Productos</h2>
 
 <div class="categorias">
 
 <div class="categoria">
 <h3>Categoria 1</h3>
-<p>Productos naturales</p>
+<p>Miel natural</p>
+<p>$25.000</p>
+<button onclick="agregarCarrito('Miel natural',25000)">
+Agregar al carrito
+</button>
 </div>
 
 <div class="categoria">
 <h3>Categoria 2</h3>
-<p>Suplementos</p>
+<p>Vitamina C</p>
+<p>$30.000</p>
+<button onclick="agregarCarrito('Vitamina C',30000)">
+Agregar al carrito
+</button>
 </div>
 
 <div class="categoria">
 <h3>Categoria 3</h3>
-<p>Vitaminas</p>
+<p>Colágeno</p>
+<p>$45.000</p>
+<button onclick="agregarCarrito('Colageno',45000)">
+Agregar al carrito
+</button>
 </div>
 
 </div>
 
 </section>
+
 
 <!-- CONTACTO -->
 
@@ -168,5 +218,97 @@ Facebook
 
 </footer>
 
+function enviarWhatsApp(){
+
+let numero = "573125128327"
+
+let mensaje = "Hola, quiero pedir:%0A%0A"
+
+carrito.forEach(producto => {
+
+mensaje += producto.nombre + " - $" + producto.precio + "%0A"
+
+})
+
+mensaje += "%0ATotal: $" + total
+
+let url = "https://wa.me/" + numero + "?text=" + mensaje
+
+window.open(url,"_blank")
+
+}
+
+
+<script>
+
+let carrito = []
+let total = 0
+
+function agregarCarrito(nombre,precio){
+
+carrito.push({nombre,precio})
+total += precio
+
+actualizarCarrito()
+
+}
+
+function actualizarCarrito(){
+
+let lista = document.getElementById("lista-carrito")
+lista.innerHTML = ""
+
+carrito.forEach((producto,index) => {
+
+let item = document.createElement("li")
+
+item.innerHTML = `
+${producto.nombre} - $${producto.precio}
+<button onclick="eliminarProducto(${index})">❌</button>
+`
+
+lista.appendChild(item)
+
+})
+
+document.getElementById("contador-carrito").innerText = carrito.length
+document.getElementById("total").innerText = total
+
+}
+
+function abrirCarrito(){
+
+let carritoDiv = document.getElementById("carrito")
+
+if(carritoDiv.style.display === "none"){
+carritoDiv.style.display = "block"
+}else{
+carritoDiv.style.display = "none"
+}
+
+}
+
+function eliminarProducto(index){
+
+total -= carrito[index].precio
+carrito.splice(index,1)
+
+actualizarCarrito()
+
+}
+
+function vaciarCarrito(){
+
+carrito = []
+total = 0
+
+actualizarCarrito()
+
+}
+
+</script>
+
+
 </body>
 </html>
+
